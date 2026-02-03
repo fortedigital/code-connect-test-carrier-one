@@ -20,12 +20,14 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   roundness?: ButtonRoundness;
   label?: string;
   children?: ReactNode;
+  disabled?: boolean;
 };
 
 const Button = ({
   variant = "primary",
   size = "default",
   roundness = "default",
+  disabled = false,
   label,
   children,
   ...props
@@ -33,7 +35,11 @@ const Button = ({
   const content = children ?? label;
 
   return (
-    <button className="bg-blue-500 text-white p-2 rounded-md inline-flex items-center gap-2" {...props}>
+    <button
+      className="bg-blue-500 text-white p-2 rounded-md inline-flex items-center gap-2 disabled:opacity-50 disabled:pointer-events-none"
+      {...props}
+      disabled={disabled}
+    >
       {content}
     </button>
   );
