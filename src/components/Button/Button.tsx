@@ -12,7 +12,7 @@ export type ButtonVariant =
 
 export type ButtonSize = "default" | "sm" | "lg" | "mini";
 
-export type ButtonShape = "default" | "rounded";
+export type ButtonShape = "default" | "round";
 
 type ButtonNoIcon = {
   iconPosition?: "none";
@@ -35,16 +35,14 @@ type ButtonBothIcons = {
   rightIcon: ReactNode;
 };
 
-export type ButtonIconProps =
-  | ButtonNoIcon
-  | ButtonOneIcon
-  | ButtonBothIcons;
+export type ButtonIconProps = ButtonNoIcon | ButtonOneIcon | ButtonBothIcons;
 
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   ButtonIconProps & {
     variant?: ButtonVariant;
     size?: ButtonSize;
     shape?: ButtonShape;
+    label?: string;
   };
 
 const Button = ({
@@ -55,11 +53,12 @@ const Button = ({
   icon,
   leftIcon,
   rightIcon,
+  label,
   ...props
 }: ButtonProps) => {
   return (
     <button className="bg-blue-500 text-white p-2 rounded-md" {...props}>
-      Click me
+      {label}
     </button>
   );
 };
