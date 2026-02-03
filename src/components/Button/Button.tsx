@@ -12,53 +12,29 @@ export type ButtonVariant =
 
 export type ButtonSize = "default" | "sm" | "lg" | "mini";
 
-export type ButtonShape = "default" | "round";
+export type ButtonRoundness = "default" | "round";
 
-type ButtonNoIcon = {
-  iconPosition?: "none";
-  icon?: never;
-  leftIcon?: never;
-  rightIcon?: never;
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: ButtonVariant;
+  size?: ButtonSize;
+  roundness?: ButtonRoundness;
+  label?: string;
+  children?: ReactNode;
 };
-
-type ButtonOneIcon = {
-  iconPosition: "left" | "right";
-  icon: ReactNode;
-  leftIcon?: never;
-  rightIcon?: never;
-};
-
-type ButtonBothIcons = {
-  iconPosition: "both";
-  icon?: never;
-  leftIcon: ReactNode;
-  rightIcon: ReactNode;
-};
-
-export type ButtonIconProps = ButtonNoIcon | ButtonOneIcon | ButtonBothIcons;
-
-export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  ButtonIconProps & {
-    variant?: ButtonVariant;
-    size?: ButtonSize;
-    shape?: ButtonShape;
-    label?: string;
-  };
 
 const Button = ({
   variant = "primary",
   size = "default",
-  shape = "default",
-  iconPosition,
-  icon,
-  leftIcon,
-  rightIcon,
+  roundness = "default",
   label,
+  children,
   ...props
 }: ButtonProps) => {
+  const content = children ?? label;
+
   return (
-    <button className="bg-blue-500 text-white p-2 rounded-md" {...props}>
-      {label}
+    <button className="bg-blue-500 text-white p-2 rounded-md inline-flex items-center gap-2" {...props}>
+      {content}
     </button>
   );
 };
