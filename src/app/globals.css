@@ -3,6 +3,36 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Button design tokens (from Figma) */
+  --button-primary: #0d4a7e;
+  --button-primary-foreground: #ffffff;
+  --button-primary-hover: #05355d;
+  --button-secondary: #ebf4fc;
+  --button-secondary-foreground: #0d4a7e;
+  --button-secondary-hover: #2373cd;
+  --button-destructive: #dc2626;
+  --button-destructive-foreground: #ffffff;
+  --button-destructive-hover: #b91c1c;
+  --button-ghost: transparent;
+  --button-ghost-foreground: #0d4a7e;
+  --button-ghost-hover: #3f709a1a;
+  --button-ghost-muted-foreground: #3f709a;
+  --button-outline-border: #c0d3e3;
+  --button-outline-hover: #3f709a0d;
+  --button-outline-hover-border: #98b5cd;
+  --button-focus-ring: #80bcff;
+  --button-focus-ring-error: #fca5a5;
+  --button-radius-default: 8px;
+  --button-radius-round: 9999px;
+  --button-padding-x-sm: 12px;
+  --button-padding-x-default: 16px;
+  --button-padding-x-lg: 24px;
+  --button-padding-y-sm: 6px;
+  --button-padding-y-default: 8px;
+  --button-padding-y-lg: 12px;
+  --button-text-sm: 14px;
+  --button-text-default: 16px;
 }
 
 @theme inline {
